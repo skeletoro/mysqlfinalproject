@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class menu {
+public class Menu {
 	private Scanner scan = new Scanner(System.in);
 	private List<String> uOptions = Arrays.asList(
 			"Display all courses",
