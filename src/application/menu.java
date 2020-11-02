@@ -88,13 +88,24 @@ public class menu {
 			System.out.println("Press enter to continue");
 			scan.nextLine();
 			
-		}while (!userSelection.equals("14"))
+		}while (!userSelection.equals("14"));
 	}
+
  private void printFullMenu() {
 	 System.out.println("Select an option to continue: \n___________________________");
-	 for (int x = 0; x < uOptions.size(); i++) {
+	 for (int x = 0; x < uOptions.size(); x++) {
 		 System.out.println(x + 1 + ") " + uOptions.get(x));
 	 }
 	 
  }
-}
+
+	
+	//private void displayCourses() {
+		//List <Courses> courses = courseDao.getCourses();
+		//for (Course course:courses) {
+		//	System.out.println(course.getCourseID() + " "  );
+		//}
+
+	}
+
+//}
