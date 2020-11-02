@@ -73,5 +73,13 @@ public class menu {
 			
 		}while (!selection.equals("14"))
 	}
+	
+	private void displayCourses() {
+		List <Courses> courses = courseDao.getCourses();
+		for (Course course:courses) {
+			System.out.println(course.getCourseID() + " " + );
+		}
+
+	}
 
 }
