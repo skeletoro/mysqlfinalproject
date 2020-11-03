@@ -13,8 +13,8 @@ public class DBConnection {
 	
 	
 	
-	private DBConnection (Connection conn) {
-		this.connection= conn;
+	private DBConnection (Connection connection) {
+		this.connection= connection;
 
 	}
 	
