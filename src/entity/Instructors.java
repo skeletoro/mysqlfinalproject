@@ -1,11 +1,11 @@
 package entity;
 
-public class instructor {
+public class Instructors {
 private int instructor_id ;
 private String instructor_name;
 private String instructor_email;
 
-public instructor(int instructor_id, String instructor_name, String instructor_email) {
+public Instructors(int instructor_id, String instructor_name, String instructor_email) {
 	this.setInstructor_id(instructor_id);
 	this.setInstructor_name(instructor_name);
 	this.setInstructor_email(instructor_email);

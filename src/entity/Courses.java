@@ -1,12 +1,12 @@
 package entity;
 
-public class course {
+public class Courses {
 private int course_id;
 private int instructor_id;
 private String course_name;
 private String format ;
 private String semester;
-public course (int course_id, int instructor_id, String course_name, String format, String semester) {
+public Courses (int course_id, int instructor_id, String course_name, String format, String semester) {
 	this.setCourse_id(course_id);
 	this.setInstructor_id(instructor_id);
 	this.setCourse_name(course_name);
