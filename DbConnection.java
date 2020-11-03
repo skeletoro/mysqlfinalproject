@@ -32,7 +32,12 @@ public class DbConnection {
 		} catch (SQLException e) {
 			System.out.println("Unable to connect, try again");
 			e.printStackTrace();
-		}
+		}finally {
+			if (connection != null) {
+				System.out.println("______________________\nclosing connection now");
+				connection.close();
+				System.out.println("Connection closed successfully"); // for closing connection very important to not leave open
+			}
 		return DbConnection.conn;
 		
 	}
