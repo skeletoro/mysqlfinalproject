@@ -10,5 +10,10 @@ public class studentDao {
 			"AND c.course_id = cs.course_id";
 	
 	private final String ADD_NEW_STUDENT_QUERY = "INSERT INTO students (student_name, student_email) VALUES (?,?)";
+	
+	private final String DELETE_STUDENT_BY_ID_QUERY = "DELETE from students WHERE student_id = ?";
+	
+	private final String UPDATE_STUDENT_BY_ID_QUERY = "UPDATE students SET student_name = ?, student_email = ? WHERE student_id = ?";
+
 
 }
