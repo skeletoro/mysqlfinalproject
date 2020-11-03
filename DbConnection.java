@@ -33,16 +33,16 @@ public class DbConnection {
 			System.out.println("Unable to connect, try again");
 			e.printStackTrace();
 		}finally {
-			if (connection != null) {
+			if (instance != null) {
 				System.out.println("______________________\nclosing connection now");
-				connection.close();
-				System.out.println("Connection closed successfully"); // for closing connection very important to not leave open
+				conn.close();
+				System.out.println("Connection closed successfully"); // for closing connection very important to 
 			}
-		return DbConnection.conn;
-		
-	}
-		return conn;
-	}
-}
 
+		
+	
+	}
+}return DbConnection.conn;
+	}		
+	}
 
