@@ -43,7 +43,7 @@ public class Menu {
 				
 			}else if (userSelection.equals("4")) {
 				
-			//	viewInstructor();
+			//	getCoursesByInstructor();
 				
 			}else if (userSelection.equals("5")) {
 				

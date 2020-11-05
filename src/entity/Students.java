@@ -1,9 +1,12 @@
 package entity;
 
+import java.util.List;
+
 public class Students {
 	private int  student_id;
 	private String student_name;
 	private String student_email;
+	private List<Courses> courses;
 	
 public Students(int student_id, String student_name, String student_email) {
 	this.setStudent_id(student_id);
@@ -33,5 +36,13 @@ public String getStudent_email() {
 
 public void setStudent_email(String student_email) {
 	this.student_email = student_email;
+}
+
+public List<Courses> getCourses() {
+	return courses;
+}
+
+public void setCourses(List<Courses> courses) {
+	this.courses = courses;
 }
 }
