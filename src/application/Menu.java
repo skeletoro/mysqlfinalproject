@@ -31,55 +31,55 @@ public class Menu {
 			
 			if (userSelection.equals("1")) {
 				
-	//			displayCourses();
+			displayCourses();
 				
 			}else if (userSelection.equals("2")) {
 				
-			//	viewCourse();
+			viewCourse();
 				
 			}else if (userSelection.equals("3")) {
 				
-				// viewStudent();
+			viewStudent();
 				
 			}else if (userSelection.equals("4")) {
 				
-			//	getCoursesByInstructor();
+				getCoursesByInstructor();
 				
 			}else if (userSelection.equals("5")) {
 				
-			//	addCourse();
+			addCourse();
 				
 			}else if (userSelection.equals("6")) {
 				
-			//	addInstructor();
+				addInstructor();
 				
 			}else if (userSelection.equals("7")) {
 				
-			//	addStudent();
+			addStudent();
 				
 			}else if (userSelection.equals("8")) {
 				
-			//	deleteCourse();
+			deleteCourse();
 				
 			}else if (userSelection.equals("9")) {
 				
-			//	deleteInstructor();
+				deleteInstructor();
 				
 			}else if (userSelection.equals("10")) {
 				
-			//	deleteStudent();
+				deleteStudent();
 				
 			}else if (userSelection.equals("11")) {
 				
-				//updateCourse();
+				updateCourse();
 				
 			}else if (userSelection.equals("12")) {
 				
-				//updateStudent();
+				updateStudent();
 				
 			}else if (userSelection.equals("13")) {
 				
-				//updateInstructor();
+				updateInstructor();
 				
 			}else {
 				System.out.println("Invalid userSelection, please make a valid userSelection...");
@@ -91,7 +91,72 @@ public class Menu {
 		}while (!userSelection.equals("14"));
 	}
 
- private void printFullMenu() {
+ private void updateInstructor() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void updateStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void updateCourse() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void deleteStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void deleteInstructor() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void deleteCourse() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void addStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void addInstructor() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void addCourse() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void getCoursesByInstructor() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void viewStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void viewCourse() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void displayCourses() {
+		// TODO Auto-generated method stub
+		
+	}
+
+private void printFullMenu() {
 	 System.out.println("Select an option to continue: \n___________________________");
 	 for (int x = 0; x < uOptions.size(); x++) {
 		 System.out.println(x + 1 + ") " + uOptions.get(x));
