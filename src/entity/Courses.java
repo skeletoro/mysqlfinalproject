@@ -2,13 +2,13 @@ package entity;
 
 public class Courses {
 private int course_id;
-private int instructor_id;
+
 private String course_name;
 private String format ;
 private String semester;
-public Courses (int course_id, int instructor_id, String course_name, String format, String semester) {
+public Courses (int course_id,  String course_name, String format, String semester) {
 	this.setCourse_id(course_id);
-	this.setInstructor_id(instructor_id);
+
 	this.setCourse_name(course_name);
 	this.setFormat(format);
 	this.setSemester(semester);
@@ -19,12 +19,7 @@ public int getCourse_id() {
 public void setCourse_id(int course_id) {
 	this.course_id = course_id;
 }
-public int getInstructor_id() {
-	return instructor_id;
-}
-public void setInstructor_id(int instructor_id) {
-	this.instructor_id = instructor_id;
-}
+
 public String getCourse_name() {
 	return course_name;
 }

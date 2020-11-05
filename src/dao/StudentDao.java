@@ -4,25 +4,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-import entity.Students;
-=======
->>>>>>> 57f756e86493f319e26a5139bc596be800a12975
-=======
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 import entity.Courses;
 import entity.Students;
->>>>>>> 6b2a4f962c3a51a787975a40edc517814e13044a
 
 public class StudentDao {
 
 	private Connection connection;
 
-	private final String GET_STUDENT_AND_COURSES_ENROLLED_IN_BY_STUDENT_ID_QUERY = "SELECT s.student_name, s.student_id, s.student_email, c.course_name from students s, courses c, course_student cs\r\n"
+	private final String GET_STUDENT_AND_COURSES_ENROLLED_IN_BY_STUDENT_ID_QUERY = "SELECT s.student_id, s.student_name, s.student_email from students s, courses c, course_student cs\r\n"
 			+ "WHERE s.student_id = ?\r\n" + "AND cs.student_id = s.student_id\r\n" + "AND c.course_id = cs.course_id";
 
 	private final String ADD_NEW_STUDENT_QUERY = "INSERT INTO students (student_name, student_email) VALUES (?,?)";
@@ -30,9 +25,11 @@ public class StudentDao {
 	private final String DELETE_STUDENT_BY_ID_QUERY = "DELETE from students WHERE student_id = ?";
 
 	private final String UPDATE_STUDENT_BY_ID_QUERY = "UPDATE students SET student_name = ?, student_email = ? WHERE student_id = ?";
-
+	
+	private CourseDao courseDao;
 	public StudentDao() {
 		connection = DBConnection.getConnection();
+		courseDao = new CourseDao();
 	}
 
 	public Students viewStudent(int studentId) throws SQLException {
@@ -42,9 +39,10 @@ public class StudentDao {
 		Students student = null;
 		List<Courses> courses = new ArrayList<>();
 		while (rs.next()) {
-			student = new Students(rs.getInt(2), rs.getString(1), rs.getString(3));
-			courses.add(new Courses(-1, -1, rs.getString(4), null, null));
+			student = new Students(rs.getInt(1), rs.getString(2), rs.getString(3));
+			
 		}
+		courses = courseDao.getCoursesByStudent(studentId);
 		student.setCourses(courses);
 		return student;
 
