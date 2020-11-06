@@ -177,7 +177,7 @@ public class Menu {
 	int id = scan.nextInt();
 	try {
 		coursedao.deleteCourse(id);
-		System.out.println("course deleted successfully!");
+		System.out.println("course deleted successfully!git");
 	} catch (SQLException e) {
 		System.out.println("error in the delete course method");
 		e.printStackTrace();
