@@ -1,5 +1,5 @@
 
-# mysqlfinalproject
+# mysqlfinalproject - bootcamp database
 
 This application was created as a team project for a bootcamp covering Java and MySQL. The project requirements are below.
 
@@ -13,7 +13,8 @@ This application was created as a team project for a bootcamp covering Java and 
 
 •	Use Git to collaborate as a group
 
-Description:
+
+DESCRIPTION
 
 This is a menu-driven application developed to track students, instructors, and courses for a software development bootcamp. Using the menu, administrators of the bootcamp can interact with the application and perform the functions listed below. 
 
