@@ -15,7 +15,7 @@ public class Menu {
 	CourseDao coursedao = new CourseDao();
 	private Scanner scan = new Scanner(System.in);
 	private List<String> uOptions = Arrays.asList("Display all courses", "View a specific course and Students enrolled",
-			"View a specific Student and course presently enrolled in", "View courses by Instructor",
+			"View a specific Student and courses presently enrolled in", "View courses by Instructor",
 			"Add a new course to the system", "Add a new Instructor to the system", "Add a new Student to the system",
 			"Delete a course from the system", "Delete an Instructor from the system",
 			"Delete a Student from the system", "Update an existing course", "Update an existing Course",
@@ -173,15 +173,15 @@ public class Menu {
 	}
 
 	private void deleteCourse() {
-	System.out.println("please enter the Course ID and press enter to delete it");
-	int id = scan.nextInt();
-	try {
-		coursedao.deleteCourse(id);
-		System.out.println("course deleted successfully!git");
-	} catch (SQLException e) {
-		System.out.println("error in the delete course method");
-		e.printStackTrace();
-	}
+		System.out.println("please enter the Course ID and press enter to delete it");
+		int id = scan.nextInt();
+		try {
+			coursedao.deleteCourse(id);
+			System.out.println("course deleted successfully!git");
+		} catch (SQLException e) {
+			System.out.println("error in the delete course method");
+			e.printStackTrace();
+		}
 
 	}
 
@@ -219,7 +219,8 @@ public class Menu {
 				"to add a Course please enter the Instructor ID to assign teacher to program and press enter ");
 		int id = scan.nextInt();
 		System.out.println("Please add the name of the Course and press enter");
-		String name = scan.next();
+		scan.next();
+		String name = scan.nextLine();
 		System.out.println("please enter the format of the Course and press enter");
 		String format = scan.next();
 		System.out.println("please enter the semester of the Course and press enter");
@@ -241,15 +242,15 @@ public class Menu {
 	}
 
 	private void viewStudent() {
-System.out.println("please enter the Student Id to view individual reccords and press enter");
-int id = scan.nextInt();
-try {
-	studentdao.viewStudent(id);
-	
-} catch (SQLException e) {
-	System.out.println("there was an error in the viewstudent method");
-	e.printStackTrace();
-}
+		System.out.println("please enter the Student Id to view individual reccords and press enter");
+		int id = scan.nextInt();
+		try {
+			studentdao.viewStudent(id);
+
+		} catch (SQLException e) {
+			System.out.println("there was an error in the viewstudent method");
+			e.printStackTrace();
+		}
 	}
 
 	private void viewCourse() throws SQLException {
