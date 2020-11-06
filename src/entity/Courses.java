@@ -1,11 +1,17 @@
 package entity;
 
+import java.util.List;
+
 public class Courses {
 private int course_id;
 
 private String course_name;
 private String format ;
 private String semester;
+
+private List<Students> student;
+
+
 public Courses (int course_id,  String course_name, String format, String semester) {
 	this.setCourse_id(course_id);
 
@@ -38,4 +44,12 @@ public String getSemester() {
 public void setSemester(String semester) {
 	this.semester = semester;
 }
+public List<Students> getStudent() {
+	return student;
+}
+public void setStudent(List<Students> student) {
+	this.student = student;
+}
+
+
 }

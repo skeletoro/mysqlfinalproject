@@ -21,7 +21,7 @@ public class Menu {
 			"Delete a Student from the system", "Update an existing course", "Update an existing Course",
 			"Update an existing Instructor");
 
-	public void start() {
+	public void start() throws SQLException {
 		String userSelection = "";
 
 		do {
@@ -252,10 +252,10 @@ try {
 }
 	}
 
-	private void viewCourse() {
+	private void viewCourse() throws SQLException {
 		System.out.println("please enter the Course ID for the course and press enter to view information.");
-		int id = scan.nextInt();
-		coursedao.viewCourse(id);
+		int courseId = scan.nextInt();
+		coursedao.viewCourse(courseId);
 	}
 
 	private void displayCourses() {
