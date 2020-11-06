@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnection {
 	private static final String url = "jdbc:mysql://localhost:3306/bootCamp";
 	private static final String username = "root";
-	private static final String password = "pwd";
+	private static final String password = "password";
 	private static Connection connection;
 	private static DBConnection instance;
 	
@@ -23,7 +23,7 @@ public class DBConnection {
 		if (instance == null) {
 			
 		try {
-            connection= DriverManager.getConnection(url, "username", "password");
+            connection= DriverManager.getConnection(url, "root", "coding");
             instance = new DBConnection(connection);
 			
 			System.out.println("Succefully connected");

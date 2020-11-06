@@ -31,16 +31,14 @@ public class CourseDao {
 
 	private final String UPDATE_COURSE_BY_ID_QUERY = "UPDATE courses SET instructor_id = ?, course_name = ?, format = ?, semester = ? WHERE course_id = ?";
 
-
 	
 	public CourseDao() {
 		connection = DBConnection.getConnection();
 	}
 	
-	
-	public List <Courses> getCoursesByStudent(int studentId) throws SQLException {
-		PreparedStatement ps = connection.prepareStatement(GET_STUDENTS_IN_A_COURSE_QUERY);
-		ps.setInt(1, studentId);
+	public List <Courses> getCoursesByInstructor(int instructorId) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement(GET_COURSES_BY_INSTRUCTOR_ID_QUERY);
+		ps.setInt(1, instructorId);
 		ResultSet rs = ps.executeQuery();
 		List <Courses> courses = new ArrayList <Courses>();
 		while (rs.next()){
@@ -49,8 +47,7 @@ public class CourseDao {
 		}return courses;
 	}
 	
-
-	public void addCourse(int instructorId, String courseName, String format, String semester) throws SQLException {
+		public void addCourse(int instructorId, String courseName, String format, String semester) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(ADD_A_NEW_COURSE_QUERY);
 		ps.setInt(1, instructorId);
 		ps.setString(2, courseName);
@@ -73,6 +70,17 @@ public class CourseDao {
 		ps.setInt(4, courseId);
 		ps.executeUpdate();
 
+	}
+	
+	public List <Courses> getCoursesByStudent(int studentId) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement(GET_STUDENTS_IN_A_COURSE_QUERY);
+		ps.setInt(1, studentId);
+		ResultSet rs = ps.executeQuery();
+		List <Courses> courses = new ArrayList <Courses>();
+		while (rs.next()){
+			courses.add(new Courses(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5)));
+		
+		}return courses;
 	}
 
 }
