@@ -16,10 +16,6 @@ public class CourseDao {
 	
 	private Connection connection;
 
-
-	
-	
-
 	private final String GET_COURSES_QUERY = "SELECT c.course_id, c.course_name, c.format, c.semester, i.instructor_name FROM courses c, instructors i WHERE c.instructor_id = i.instructor_id";
 
 	private final String GET_STUDENTS_IN_A_COURSE_QUERY = "SELECT c.course_id ,c.course_name, c.format, c.semester from students s, courses c, course_student cs\r\n"
@@ -49,11 +45,10 @@ public class CourseDao {
 		List <Courses> courses = new ArrayList <Courses>();
 		while (rs.next()){
 			courses.add(new Courses(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5)));
-
 		
 		}return courses;
 	}
-
+	
 
 	public void addCourse(int instructorId, String courseName, String format, String semester) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(ADD_A_NEW_COURSE_QUERY);
