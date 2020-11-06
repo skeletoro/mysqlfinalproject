@@ -147,14 +147,41 @@ public class Menu {
 	}
 
 	private void deleteStudent() {
+		System.out.println("to delete student please enter their Student ID and press enter");
+		int id = scan.nextInt();
+		try {
+			studentdao.deleteStudent(id);
+			System.out.println("student has been deleted succesfully");
+		} catch (SQLException e) {
+			System.out.println("error in delete student method");
+			e.printStackTrace();
+		}
 
 	}
 
 	private void deleteInstructor() {
+		System.out.println("to delete Instructor please enter their Instructor ID and press enter");
+		int id = scan.nextInt();
+		try {
+			instructordao.deleteInstructor(id);
+			System.out.println("Instructor deleted successfully");
+		} catch (SQLException e) {
+			System.out.println("error in delete instructor method");
+			e.printStackTrace();
+		}
 
 	}
 
 	private void deleteCourse() {
+	System.out.println("please enter the Course ID and press enter to delete it");
+	int id = scan.nextInt();
+	try {
+		coursedao.deleteCourse(id);
+		System.out.println("course deleted successfully!");
+	} catch (SQLException e) {
+		System.out.println("error in the delete course method");
+		e.printStackTrace();
+	}
 
 	}
 
@@ -208,18 +235,31 @@ public class Menu {
 	}
 
 	private void getCoursesByInstructor() {
-
+		System.out.println("to view the course by instructor enter the ID for the Instructor and press enter");
+		int id = scan.nextInt();
+		instructordao.getCoursesByInstructor();
 	}
 
 	private void viewStudent() {
-
+System.out.println("please enter the Student Id to view individual reccords and press enter");
+int id = scan.nextInt();
+try {
+	studentdao.viewStudent(id);
+	
+} catch (SQLException e) {
+	System.out.println("there was an error in the viewstudent method");
+	e.printStackTrace();
+}
 	}
 
 	private void viewCourse() {
-
+		System.out.println("please enter the Course ID for the course and press enter to view information.");
+		int id = scan.nextInt();
+		coursedao.viewCourse(id);
 	}
 
 	private void displayCourses() {
+		coursedao.displayCourses();
 
 	}
 

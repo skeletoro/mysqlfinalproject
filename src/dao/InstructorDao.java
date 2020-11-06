@@ -52,4 +52,11 @@ public class InstructorDao {
 
 	}
 
+
+
+	public void getCoursesByInstructor() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

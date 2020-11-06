@@ -83,4 +83,18 @@ public class CourseDao {
 		}return courses;
 	}
 
+	public void viewCourse(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void displayCourses() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+		
+	}
+
 }
