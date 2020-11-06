@@ -55,26 +55,6 @@ public class CourseDao {
 	}
 
 
-	
-
-
-//	public List<Courses> getCourses() throws SQLException {
-//		ResultSet rs = connection.prepareStatement(GET_COURSES_QUERY).executeQuery();
-//		List<Courses> courses = new ArrayList <Courses>();
-//		
-//		while (rs.next()){
-//			courses.add(populateCourses(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
-//		}
-//		return courses;
-//		}
-//
-//	public void viewCourse() {
-//	}
-//
-//	public void getCoursesByInstructor() {
-//
-//	}
-
 	public void addCourse(int instructorId, String courseName, String format, String semester) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(ADD_A_NEW_COURSE_QUERY);
 		ps.setInt(1, instructorId);
@@ -99,7 +79,5 @@ public class CourseDao {
 		ps.executeUpdate();
 
 	}
-//	private Courses populateCourses(int courseId, String courseName, String format, String semester) {
-//		return new Courses (courseId, courseName, format, semester, CourseDao.getCourses());
-//	}
+
 }
