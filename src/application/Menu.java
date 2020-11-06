@@ -1,10 +1,18 @@
 package application;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import dao.CourseDao;
+import dao.InstructorDao;
+import dao.StudentDao;
+
 public class Menu {
+	StudentDao studentdao = new StudentDao();
+	InstructorDao instructordao = new InstructorDao();
+	CourseDao coursedao = new CourseDao();
 	private Scanner scan = new Scanner(System.in);
 	private List<String> uOptions = Arrays.asList(
 			"Display all courses",
@@ -117,23 +125,57 @@ private void deleteInstructor() {
 	}
 
 private void deleteCourse() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stu
 		
 	}
 
 private void addStudent() {
-		// TODO Auto-generated method stub
-		
+	System.out.println("to add student please enter the name of student to add and presss enter");
+	String name = scan.next();
+	System.out.println("please add the email associated with the student and press enter");
+	String email = scan.next();
+	try {
+		studentdao.addStudent(name,email);
+		System.out.println("Student has been added successfully!");
+	} catch (SQLException e) {
+		System.out.println("error occured in addStudent method");
+		e.printStackTrace();
+	}
 	}
 
 private void addInstructor() {
-		// TODO Auto-generated method stub
+		System.out.println("to add an Instructor please enter the full name for the Instructor and press enter");
+		String name = scan.next();
+		System.out.println("please add the email for the instructor to be added and press enter");
+		String email = scan.next();
+		try {
+			instructordao.addInstructor(name, email);
+			System.out.println("Instructor has been added succesfully!");
+		} catch (SQLException e) {
+			System.out.println("error occurred in add instructor");
+			e.printStackTrace();
+		}
+		
 		
 	}
 
-private void addCourse() {
-		// TODO Auto-generated method stub
-		
+private void addCourse()  {
+System.out.println("to add a Course please enter the Instructor ID to assign teacher to program and press enter ");
+int id = scan.nextInt();
+System.out.println("Please add the name of the Course and press enter");
+String name = scan.next();
+System.out.println("please enter the format of the Course and press enter");
+String format = scan.next();
+System.out.println("please enter the semester of the Course and press enter");
+String semester = scan.next();
+try {
+	coursedao.addCourse(id, name, format, semester);
+	System.out.println("Course added successfully!");
+} catch (SQLException e) {
+	
+	System.out.println("error occurred in addCourse");
+	e.printStackTrace();
+}
 	}
 
 private void getCoursesByInstructor() {
