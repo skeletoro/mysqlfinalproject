@@ -6,14 +6,10 @@ import java.sql.SQLException;
 
 import entity.Instructors;
 
-
 public class InstructorDao {
 
 	private Connection connection;
 
-	
-
-    
 	private final String ADD_NEW_INSTRUCTOR_QUERY = "INSERT INTO instructors (instructor_name, instructor_email) VALUES (?,?)";
 
 	private final String DELETE_INSTRUCTOR_BY_ID_QUERY = "DELETE from instructors WHERE instructor_id = ?";
@@ -24,8 +20,6 @@ public class InstructorDao {
 
 		connection = DBConnection.getConnection();
 	}
-	
-	
 
 	public void addInstructor(String instructorName, String instructorEmail) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(ADD_NEW_INSTRUCTOR_QUERY);
@@ -37,11 +31,10 @@ public class InstructorDao {
 
 	public void deleteInstructor(int instructorId) throws SQLException {
 
-		PreparedStatement ps = connection.prepareStatement (DELETE_INSTRUCTOR_BY_ID_QUERY);
+		PreparedStatement ps = connection.prepareStatement(DELETE_INSTRUCTOR_BY_ID_QUERY);
 		ps.setInt(1, instructorId);
 		ps.executeUpdate();
 	}
-	
 
 	public void updateInstructor(String instructorName, String instructorEmail, int instructorId) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(UPDATE_INSTRUCTOR_BY_ID_QUERY);
@@ -52,11 +45,9 @@ public class InstructorDao {
 
 	}
 
-
-
 	public void getCoursesByInstructor() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
