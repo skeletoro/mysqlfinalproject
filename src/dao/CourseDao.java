@@ -14,6 +14,8 @@ import entity.Students;
 
 public class CourseDao {
 
+	private String DISPLAY_COURSE_QUERY = "select * from courses";
+
 	private Connection connection;
 
 	private final String GET_COURSES_QUERY = "SELECT c.course_id, c.course_name, c.format, c.semester, i.instructor_name FROM courses c, instructors i WHERE c.instructor_id = i.instructor_id";
@@ -100,8 +102,13 @@ public class CourseDao {
 
 	}
 
-	public void displayCourses() {
-
+	public List<Courses> displayCourses() throws SQLException {
+		ResultSet rs = connection.prepareStatement(DISPLAY_COURSE_QUERY).executeQuery();
+		List<Courses> courses = new ArrayList<Courses>();
+		while (rs.next()) {
+			System.out.println("Course ID: " + rs.getInt(1) + " " + "Instructor ID: " + rs.getInt(2) + " " + "Course Name: " + rs.getString(3) + " " + "Format: " + rs.getString(4) + " " + "Semester: " + rs.getString(5));
+		}
+		return courses;
 	}
 
 }

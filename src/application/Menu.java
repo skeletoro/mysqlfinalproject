@@ -229,8 +229,7 @@ public class Menu {
 				"To add a Course please enter the instructor ID to assign teacher to program and press enter:");
 		int id = scan.nextInt();
 		System.out.println("Please add the name of the course and press enter:");
-		scan.next();
-		String name = scan.nextLine();
+		String name = scan.next();
 		System.out.println("Please enter the format of the course and press enter:");
 		String format = scan.next();
 		System.out.println("Please enter the semester of the course and press enter:");
@@ -273,7 +272,12 @@ public class Menu {
 	}
 
 	private void displayCourses() {
-		coursedao.displayCourses();
+		try {
+			coursedao.displayCourses();
+		} catch (SQLException e) {
+			System.out.println("error in displayCourses Method");
+			e.printStackTrace();
+		}
 
 	}
 
