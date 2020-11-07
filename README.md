@@ -18,7 +18,7 @@ DESCRIPTION
 
 This is a menu-driven application developed to track students, instructors, and courses for a software development bootcamp. Using the menu, administrators of the bootcamp can interact with the application and perform the functions listed below. 
 
-Create, update, and delete records for:
+Read, create, update, and delete records for:
 
 •	Students
 
@@ -26,14 +26,10 @@ Create, update, and delete records for:
 
 •	Courses
 
-Display information for:
-
-•	All courses
-
-•	A specific course and the students enrolled in the course
-
-•	Courses in which a specific student is enrolled
+The user also can also view information for:
 
 •	Courses that a specific instructor teaches
 
 The application is written in Java, with a connection to a database where the data is stored.
+
+

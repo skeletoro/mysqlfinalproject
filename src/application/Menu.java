@@ -15,13 +15,12 @@ public class Menu {
 	InstructorDao instructordao = new InstructorDao();
 	CourseDao coursedao = new CourseDao();
 	private Scanner scan = new Scanner(System.in);
-	private List<String> uOptions = Arrays.asList("Display all courses", "View a specific course and students enrolled",
-			"View a specific student and courses presently enrolled in", "View courses by instructor",
-			"Add a new course to the system", "Add a new instructor to the system", "Add a new student to the system",
-			"Delete a course from the system", "Delete an instructor from the system",
-			"Delete a student from the system", "Update an existing course", "Update an existing student",
-			"Update an existing instructor");
-	private Object courses;
+	private List<String> uOptions = Arrays.asList("Display all courses", "Display all students",
+			"Display all instructors", "View courses by instructor", "Add a new course to the system",
+			"Add a new instructor to the system", "Add a new student to the system", "Delete a course from the system",
+			"Delete an instructor from the system", "Delete a student from the system", "Update an existing course",
+			"Update an existing student", "Update an existing instructor");
+	//private Object courses;
 
 	public void start() throws SQLException {
 		String userSelection = "";
@@ -36,11 +35,11 @@ public class Menu {
 
 			} else if (userSelection.equals("2")) {
 
-				viewCourse();
+				displayStudents();
 
 			} else if (userSelection.equals("3")) {
 
-				viewStudent();
+				displayInstructors();
 
 			} else if (userSelection.equals("4")) {
 
@@ -139,12 +138,13 @@ public class Menu {
 	private void updateCourse() {
 		System.out.println("Please enter the ID for the instructor teaching the course and hit enter:");
 		int instid = scan.nextInt();
+		scan.nextLine();
 		System.out.println("Please enter the new name for the course being updated and hit enter:");
-		String name = scan.next();
+		String name = scan.nextLine();
 		System.out.println("Please enter the format for the course being updated:");
-		String format = scan.next();
+		String format = scan.nextLine();
 		System.out.println("Please enter the semester for the course you would like to update and press enter:");
-		String semester = scan.next();
+		String semester = scan.nextLine();
 		System.out.println("Please enter the course ID for the courses being updated and hit enter:");
 		int cid = scan.nextInt();
 		try {
@@ -197,7 +197,7 @@ public class Menu {
 
 	private void addStudent() {
 		System.out.println("To add student please enter the name of student to add and presss enter:");
-		String name = scan.next();
+		String name = scan.nextLine();
 		System.out.println("Please add the email associated with the student and press enter:");
 		String email = scan.next();
 		try {
@@ -228,8 +228,9 @@ public class Menu {
 		System.out.println(
 				"To add a Course please enter the instructor ID to assign teacher to program and press enter:");
 		int id = scan.nextInt();
+		scan.nextLine();
 		System.out.println("Please add the name of the course and press enter:");
-		String name = scan.next();
+		String name = scan.nextLine();
 		System.out.println("Please enter the format of the course and press enter:");
 		String format = scan.next();
 		System.out.println("Please enter the semester of the course and press enter:");
@@ -245,31 +246,31 @@ public class Menu {
 	}
 
 	private void getCoursesByInstructor() throws SQLException {
-		System.out.println("To view the course by instructor enter the ID for the instructor and press enter:");
+		System.out.println("To view the courses an instructor teaches, enter Instructor ID and press enter:");
 		int id = scan.nextInt();
 		List<Courses> courses = coursedao.getCoursesByInstructor(id);
 		for (Courses c : courses) {
-			System.out.println(c.getCourse_name());
+			System.out.println("Course Name: " + c.getCourse_name());
 		}
 	}
 
-	private void viewStudent() {
-		System.out.println("Please enter the student Id to view individual records and press enter:");
-		int id = scan.nextInt();
-		try {
-			studentdao.viewStudent(id);
+//	private void viewStudent() {
+//		System.out.println("Please enter the student Id to view individual records and press enter:");
+//		int id = scan.nextInt();
+//		try {
+//			studentdao.viewStudent(id);
+//
+//		} catch (SQLException e) {
+//			System.out.println("There was an error in attempting to retrieve student information.");
+//			e.printStackTrace();
+//		}
+//	}
 
-		} catch (SQLException e) {
-			System.out.println("There was an error in attempting to retrieve student information.");
-			e.printStackTrace();
-		}
-	}
-
-	private void viewCourse() throws SQLException {
-		System.out.println("Please enter the course ID for the course and press enter to view information:");
-		int courseId = scan.nextInt();
-		coursedao.viewCourse(courseId);
-	}
+//	private void viewCourse() throws SQLException {
+//		System.out.println("Please enter the course ID for the course and press enter to view information:");
+//		int courseId = scan.nextInt();
+//		coursedao.viewCourse(courseId);
+//	}
 
 	private void displayCourses() {
 		try {
@@ -278,7 +279,23 @@ public class Menu {
 			System.out.println("error in displayCourses Method");
 			e.printStackTrace();
 		}
-
 	}
 
+	private void displayStudents() {
+		try {
+			studentdao.displayStudents();
+		} catch (SQLException e) {
+			System.out.println("error in displayStudents Method");
+			e.printStackTrace();
+		}
+	}
+
+	private void displayInstructors() {
+		try {
+			instructordao.displayInstructors();
+		} catch (SQLException e) {
+			System.out.println("error in displayInstructors Method");
+			e.printStackTrace();
+		}
+	}
 }

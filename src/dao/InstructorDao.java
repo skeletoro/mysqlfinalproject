@@ -2,13 +2,18 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import entity.Instructors;
 
 public class InstructorDao {
 
 	private Connection connection;
+
+	private String DISPLAY_INSTRUCTORS_QUERY = "select * from instructors";
 
 	private final String ADD_NEW_INSTRUCTOR_QUERY = "INSERT INTO instructors (instructor_name, instructor_email) VALUES (?,?)";
 
@@ -45,9 +50,13 @@ public class InstructorDao {
 
 	}
 
-	public void getCoursesByInstructor() {
-		// TODO Auto-generated method stub
-
+	public List<Instructors> displayInstructors() throws SQLException {
+		ResultSet rs = connection.prepareStatement(DISPLAY_INSTRUCTORS_QUERY).executeQuery();
+		List<Instructors> instructors = new ArrayList<Instructors>();
+		while (rs.next()) {
+			System.out.println("Instructor ID: " + rs.getInt(1) + " " + "Instructor Name: " + rs.getString(2) + " "
+					+ "Email: " + rs.getString(3));
+		}
+		return instructors;
 	}
-
 }
