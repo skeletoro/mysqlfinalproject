@@ -31,5 +31,5 @@ The user also can also view information for:
 •	Courses that a specific instructor teaches
 
 The application is written in Java, with a connection to a database where the data is stored.
-
+![alt text] (https://github.com/skeletoro/mysqlfinalproject/blob/main/1.Display%20all%20courses.jpg)
 
