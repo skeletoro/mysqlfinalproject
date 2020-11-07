@@ -198,7 +198,7 @@ public class Menu {
 		String email = scan.next();
 		try {
 			studentdao.addStudent(name, email);
-			System.out.println("Student has been added successfully!");
+			System.out.println("Student has been added +cessfully!");
 		} catch (SQLException e) {
 			System.out.println("Error occured when  attempting to add student.");
 			e.printStackTrace();
