@@ -8,6 +8,7 @@ import java.util.Scanner;
 import dao.CourseDao;
 import dao.InstructorDao;
 import dao.StudentDao;
+import entity.Courses;
 
 public class Menu {
 	StudentDao studentdao = new StudentDao();
@@ -18,8 +19,9 @@ public class Menu {
 			"View a specific student and courses presently enrolled in", "View courses by instructor",
 			"Add a new course to the system", "Add a new instructor to the system", "Add a new student to the system",
 			"Delete a course from the system", "Delete an instructor from the system",
-			"Delete a student from the system", "Update an existing course", "Update an existing course",
+			"Delete a student from the system", "Update an existing course", "Update an existing student",
 			"Update an existing instructor");
+	private Object courses;
 
 	public void start() throws SQLException {
 		String userSelection = "";
@@ -144,7 +146,7 @@ public class Menu {
 		System.out.println("Please enter the course ID for the courses being updated and hit enter:");
 		int cid = scan.nextInt();
 		try {
-			coursedao.updateCourse(instid, name, format, cid);
+			coursedao.updateCourse(instid, name, format, semester, cid);
 			System.out.println("Course updated successfully!");
 		} catch (SQLException e) {
 			System.out.println("Error occurred when attempting to update course.");
@@ -198,7 +200,7 @@ public class Menu {
 		String email = scan.next();
 		try {
 			studentdao.addStudent(name, email);
-			System.out.println("Student has been added +cessfully!");
+			System.out.println("Student has been added sucessfully!");
 		} catch (SQLException e) {
 			System.out.println("Error occured when  attempting to add student.");
 			e.printStackTrace();
@@ -241,11 +243,13 @@ public class Menu {
 		}
 	}
 
-	private void getCoursesByInstructor() {
+	private void getCoursesByInstructor() throws SQLException {
 		System.out.println("To view the course by instructor enter the ID for the instructor and press enter:");
 		int id = scan.nextInt();
-		instructordao.getCoursesByInstructor();
-	}
+		coursedao.getCoursesByInstructor(id);
+		System.out.println("test" + courses);
+		}
+	
 
 	private void viewStudent() {
 		System.out.println("Please enter the student Id to view individual records and press enter:");

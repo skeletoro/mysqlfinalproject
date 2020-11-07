@@ -23,9 +23,7 @@ public class CourseDao {
 	private final String GET_STUDENTS_IN_A_COURSE_QUERY = "SELECT c.course_id ,c.course_name, c.format, c.semester from students s, courses c, course_student cs\r\n"
 			+ "WHERE c.course_id = ?\r\n" + "AND cs.student_id = s.student_id\r\n" + "AND c.course_id = cs.course_id";
 
-	private final String GET_COURSES_BY_INSTRUCTOR_ID_QUERY = "SELECT i.instructor_name, i.instructor_id, i.instructor_email, c.course_name\r\n"
-			+ "FROM courses c, instructors i\r\n" + "WHERE i.instructor_id = ?\r\n"
-			+ "AND c.instructor_id = i.instructor_id";
+	private final String GET_COURSES_BY_INSTRUCTOR_ID_QUERY = "SELECT c.course_id, c.course_name, c.format, c.semester FROM courses c, instructors i WHERE i.instructor_id = ? AND c.instructor_id = i.instructor_id";
 
 	private final String ADD_A_NEW_COURSE_QUERY = "INSERT INTO courses (instructor_id, course_name, format, semester) VALUES (?,?,?,?)";
 
@@ -44,7 +42,7 @@ public class CourseDao {
 		ResultSet rs = ps.executeQuery();
 		List <Courses> courses = new ArrayList <Courses>();
 		while (rs.next()){
-			courses.add(new Courses(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5)));
+			courses.add(new Courses(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
 		
 		}return courses;
 	}
@@ -64,12 +62,13 @@ public class CourseDao {
 		ps.executeUpdate();
 	}
 
-	public void updateCourse(int instructorId, String courseName, String format, int courseId) throws SQLException {
+	public void updateCourse(int instructorId, String courseName, String format, String semester, int courseId) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(UPDATE_COURSE_BY_ID_QUERY);
 		ps.setInt(1, instructorId);
 		ps.setString(2, courseName);
 		ps.setString(3, format);
-		ps.setInt(4, courseId);
+		ps.setString(4, semester);
+		ps.setInt(5, courseId);
 		ps.executeUpdate();
 
 	}
@@ -100,10 +99,8 @@ public class CourseDao {
 		return course;
 
 }
-
 	public void displayCourses() {
-		
-		
+				
 	}
 
 

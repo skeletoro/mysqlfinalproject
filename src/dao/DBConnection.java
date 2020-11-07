@@ -8,7 +8,7 @@ public class DBConnection {
 
 	private final static String url = "jdbc:mysql://localhost:3306/bootcamp";
 	private final static String username = "root";
-	private final static String password = "YOUR PW HERE !!!! leave this blank when you push please";
+	private final static String password = "coding";
 	private static Connection connection;
 	private static DBConnection instance;
 
