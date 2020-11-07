@@ -20,7 +20,7 @@ The user also can also view information for:
 The application is written in Java, with a connection to a database where the data is stored.
 
 MENU
-![Screenshot] (https://github.com/skeletoro/mysqlfinalproject/blob/main/App%20Running%20Screen%20Shots/Menu.jpg)
+![Screenshot](https://github.com/skeletoro/mysqlfinalproject/blob/main/App%20Running%20Screen%20Shots/Menu.jpg)
 
 DISPLAY ALL COURSES IN DATABASE
 ![Screenshot](https://github.com/skeletoro/mysqlfinalproject/blob/main/App%20Running%20Screen%20Shots/1.Display%20all%20courses.jpg)
