@@ -10,20 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.Courses;
-import entity.Students;
 
 public class CourseDao {
-	
+
 	private Connection connection;
 
-
-	private String DISPLAY_COURSE_QUERY = "select * from courses";
-	
-
-//	private final String GET_COURSES_QUERY = "SELECT c.course_id, c.course_name, c.format, c.semester, i.instructor_name FROM courses c, instructors i WHERE c.instructor_id = i.instructor_id";
-
-//private final String GET_STUDENTS_IN_A_COURSE_QUERY = "SELECT c.course_id ,c.course_name, c.format, c.semester from students s, courses c, course_student cs\r\n"
-//			+ "WHERE c.course_id = ?\r\n" + "AND cs.student_id = s.student_id\r\n" + "AND c.course_id = cs.course_id";
+	private String DISPLAY_COURSE_QUERY = "SELECT * from courses";
 
 	private final String GET_COURSES_BY_INSTRUCTOR_ID_QUERY = "SELECT c.course_id, c.course_name, c.format, c.semester FROM courses c, instructors i WHERE i.instructor_id = ? AND c.instructor_id = i.instructor_id";
 
@@ -76,39 +68,13 @@ public class CourseDao {
 
 	}
 
-//	public List<Courses> getCoursesByStudent(int studentId) throws SQLException {
-//		PreparedStatement ps = connection.prepareStatement(GET_STUDENTS_IN_A_COURSE_QUERY);
-//		ps.setInt(1, studentId);
-//		ResultSet rs = ps.executeQuery();
-//		List<Courses> courses = new ArrayList<Courses>();
-//		while (rs.next()) {
-//			courses.add(new Courses(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5)));
-//
-//		}
-//		return courses;
-//	}
-
-//	public Courses viewCourse(int courseId) throws SQLException {
-//		PreparedStatement ps = connection.prepareStatement(GET_STUDENTS_IN_A_COURSE_QUERY);
-//		ps.setInt(1, courseId);
-//		ResultSet rs = ps.executeQuery();
-//		Courses course = null;
-//		List<Students> student = new ArrayList<>();
-//		while (rs.next()) {
-//			course = new Courses(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
-//
-//		}
-//		student = StudentDao.getStudentInCourse(courseId);
-//		course.setStudent(student);
-//		return course;
-//
-//	}
-
 	public List<Courses> displayCourses() throws SQLException {
 		ResultSet rs = connection.prepareStatement(DISPLAY_COURSE_QUERY).executeQuery();
 		List<Courses> courses = new ArrayList<Courses>();
 		while (rs.next()) {
-			System.out.println("Course ID: " + rs.getInt(1) + " " + "Instructor ID: " + rs.getInt(2) + " " + "Course Name: " + rs.getString(3) + " " + "Format: " + rs.getString(4) + " " + "Semester: " + rs.getString(5));
+			System.out.println("Course ID: " + rs.getInt(1) + " " + "Instructor ID: " + rs.getInt(2) + " "
+					+ "Course Name: " + rs.getString(3) + " " + "Format: " + rs.getString(4) + " " + "Semester: "
+					+ rs.getString(5));
 		}
 		return courses;
 	}

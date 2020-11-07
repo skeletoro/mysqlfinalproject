@@ -20,7 +20,6 @@ public class Menu {
 			"Add a new instructor to the system", "Add a new student to the system", "Delete a course from the system",
 			"Delete an instructor from the system", "Delete a student from the system", "Update an existing course",
 			"Update an existing student", "Update an existing instructor");
-	//private Object courses;
 
 	public void start() throws SQLException {
 		String userSelection = "";
@@ -253,24 +252,6 @@ public class Menu {
 			System.out.println("Course Name: " + c.getCourse_name());
 		}
 	}
-
-//	private void viewStudent() {
-//		System.out.println("Please enter the student Id to view individual records and press enter:");
-//		int id = scan.nextInt();
-//		try {
-//			studentdao.viewStudent(id);
-//
-//		} catch (SQLException e) {
-//			System.out.println("There was an error in attempting to retrieve student information.");
-//			e.printStackTrace();
-//		}
-//	}
-
-//	private void viewCourse() throws SQLException {
-//		System.out.println("Please enter the course ID for the course and press enter to view information:");
-//		int courseId = scan.nextInt();
-//		coursedao.viewCourse(courseId);
-//	}
 
 	private void displayCourses() {
 		try {

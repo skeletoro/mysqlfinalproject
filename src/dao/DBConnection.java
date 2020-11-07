@@ -8,7 +8,7 @@ public class DBConnection {
 
 	private final static String url = "jdbc:mysql://localhost:3306/bootcamp";
 	private final static String username = "root";
-	private final static String password = "insert your pw here";
+	private final static String password = "your password here";
 	private static Connection connection;
 	private static DBConnection instance;
 
@@ -34,12 +34,4 @@ public class DBConnection {
 		}
 		return DBConnection.connection;
 	}
-	/*
-	 * finally { if (instance != null) {
-	 * System.out.println("______________________\nclosing connection now"); try {
-	 * connection.close(); } catch (SQLException e) { e.printStackTrace(); }
-	 * System.out.println("Connection closed successfully"); // for closing
-	 * connection very important to }
-	 */
-
 }
