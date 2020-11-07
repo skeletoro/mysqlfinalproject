@@ -25,7 +25,7 @@ public class CourseDao {
 			+ "FROM courses c, instructors i\r\n" + "WHERE i.instructor_id = ?\r\n"
 			+ "AND c.instructor_id = i.instructor_id";
 
-	private final String ADD_A_NEW_COURSE_QUERY = "INSERT INTO courses (instructor_id, course_name, course_format, semester) VALUES (?,?,?,?)";
+	private final String ADD_A_NEW_COURSE_QUERY = "INSERT INTO courses (instructor_id, course_name, format, semester) VALUES (?,?,?,?)";
 
 	private final String DELETE_COURSE_BY_ID_QUERY = "DELETE from courses WHERE course_id = ?";
 
