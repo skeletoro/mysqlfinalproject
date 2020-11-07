@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.Courses;
+import entity.Students;
+
 
 public class CourseDao {
 
@@ -83,15 +85,27 @@ public class CourseDao {
 		}return courses;
 	}
 
-	public void viewCourse(int id) {
-		// TODO Auto-generated method stub
+	public Courses viewCourse(int courseId) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement(GET_STUDENTS_IN_A_COURSE_QUERY);
+		ps.setInt(1, courseId);
+		ResultSet rs = ps.executeQuery();
+		Courses course = null;
+		List<Students> student = new ArrayList<>();
+		while (rs.next()) {
+			course = new Courses(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+			
+		}
+		student = StudentDao.getStudentInCourse(courseId);
+		course.setStudent(student);
+		return course;
+
+}
+
+	public void displayCourses() {
+		
 		
 	}
 
-	public void displayCourses() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	
 		
